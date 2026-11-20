@@ -101,9 +101,10 @@ test('zero external requests during local visit, blocked-page, popup, and settin
     const blocked = await h.context.newPage(); await blocked.goto(`${h.base}blocked.html#${siteId}`);
     const popup = await h.context.newPage(); await popup.goto(`${h.base}popup.html`);
     await blocked.getByRole('button', { name: 'Begin 10-minute wait' }).click();
+    await expect(blocked.locator('#visit-panel')).toContainText('Your wait keeps going');
     await editState(h.worker, { visit: { readyAt: Date.now() - 1 } });
-    await rpc(h.page, 'startVisit', { siteId });
-    await rpc(h.page, 'cancelVisit', { siteId });
+    expect((await rpc(h.page, 'startVisit', { siteId })).ok).toBe(true);
+    expect((await rpc(h.page, 'cancelVisit', { siteId })).ok).toBe(true);
     await propose(h.page, { ...settings, cooldownMinutes: 15 });
     await expect(popup.locator('#site-list')).toContainText('social.blocker.test');
     expect(requests).toEqual([]);
