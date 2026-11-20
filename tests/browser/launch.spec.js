@@ -132,3 +132,17 @@ test('expired visit is revoked after a full browser restart', async () => {
     await expect(target).toHaveURL(/blocked\.html#/);
   } finally { await h.context.close(); await server.close(); }
 });
+
+test('fully qualified trailing-dot hostnames cannot bypass domain blocks', async () => {
+  const h = await launch({ extraArgs: ['--host-resolver-rules=MAP *.blocker.test 127.0.0.1, MAP *.blocker.test. 127.0.0.1'] });
+  const server = await siteServer();
+  try {
+    await initialize(h.page); await propose(h.page);
+    for (const host of ['social.blocker.test.', 'a.social.blocker.test.']) {
+      const target = await h.context.newPage();
+      const result = await target.goto(server.url(host)).catch(error => error.message);
+      if (!target.url().includes('blocked.html#')) expect(String(result)).toContain('ERR_BLOCKED_BY_CLIENT');
+    }
+    expect(server.hits.length).toBe(0);
+  } finally { await h.context.close(); await server.close(); }
+});

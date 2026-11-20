@@ -5,7 +5,7 @@ Date: November 20, 2026
 ## Completed
 
 - **34 unit/worker tests passed** with Node 24.14.1 on macOS arm64.
-- **19 browser tests passed** with Playwright 1.58.2 and its bundled Chrome for Testing 145.0.7632.6, using isolated profiles (18 behavior/layout tests plus one Store-asset render test).
+- **20 browser tests passed** with Playwright 1.58.2 and its bundled Chrome for Testing 145.0.7632.6, using isolated profiles (19 behavior/layout tests plus one Store-asset render test).
 - **Source/manifest checks passed:** all 17 extension files, JavaScript syntax, expected permissions, resource paths, no remote assets, no network client APIs, no cloud-sync calls, and no unsafe HTML assignment.
 - `npm audit --audit-level=moderate` reported **0 vulnerabilities**. Dependencies are development-only.
 - Store screenshots (1280×800), a 440×280 promotional tile, and a 1400×560 marquee were generated locally. The settings, schedules, blocked page, and small promotional tile were visually inspected.
@@ -17,7 +17,7 @@ Policy tests cover normalized URLs and international domains, exact/subdomain ma
 
 Worker tests cover authentication and its expiry, document/tab binding, password rejection/throttling/change, concurrent requests, full cooldown preservation, post-deadline fresh authentication, stale proposals, strict groups, cancellation, missed ready windows, expired visits on startup, journal recovery, failed rule installs and rollback, incognito mutation rejection, and credential-free exports.
 
-Browser tests exercise actual DNR enforcement for new/existing tabs, subframes, stricter subdomains during a parent visit, unrelated websites, permission denial/revocation, cached service-worker pages, Back navigation, visit expiry/cancellation, worker suspension, restart, extension reload, split-incognito shared visits, and a real schedule boundary while the settings page is closed. Migration tests download/import real JSON through the UI and verify that weaker imports remain pending. Invalid backups are rejected without applying changes.
+Browser tests exercise actual DNR enforcement for new/existing tabs, subframes, stricter subdomains during a parent visit, unrelated websites, trailing-dot domain aliases, permission denial/revocation, cached service-worker pages, Back navigation, visit expiry/cancellation, worker suspension, restart, extension reload, split-incognito shared visits, and a real schedule boundary while the settings page is closed. Migration tests download/import real JSON through the UI and verify that weaker imports remain pending. Invalid backups are rejected without applying changes.
 
 A privacy test observes no external requests during setup, editing, blocked-page/popup display, visit request/start/cancellation, and settings changes. A separate intentional test fetch is rejected by the runtime CSP with a connect-src violation. Static checks supplement this behavioral audit; this is not a formal security assessment.
 
@@ -29,4 +29,4 @@ Physical computer sleep/wake was not induced. Durable deadlines, overdue reconci
 
 The Chrome Web Store upload has not been submitted or approved. Verify the actual Store install and automatic update path after Google assigns the Store extension ID. Keep the unpacked installation until its settings have been exported and successfully imported into the Store copy. The launch kit is in [store/LISTING.md](store/LISTING.md).
 
-GitHub CI repeats source, unit, and standard browser checks on Ubuntu. Its result is recorded separately once the public repository has run it.
+GitHub CI repeats source, unit, and standard browser checks on Ubuntu 24.04. The runner is pinned because the initial ubuntu-latest image selected Ubuntu 26.04, which the pinned Playwright release does not support. The corrected run's result is recorded separately after completion.
