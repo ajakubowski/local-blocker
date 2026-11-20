@@ -21,7 +21,7 @@ Browser tests exercise actual DNR enforcement for new/existing tabs, subframes, 
 
 A privacy test observes no external requests during setup, editing, blocked-page/popup display, visit request/start/cancellation, and settings changes. A separate intentional test fetch is rejected by the runtime CSP with a connect-src violation. Static checks supplement this behavioral audit; this is not a formal security assessment.
 
-Most long waits in the standard suite are accelerated by changing **only isolated test-profile state** through DevTools. Production runtime files contain no test-clock override or bypass. The opt-in real-clock acceptance test is recorded separately after completion.
+Most long waits in the standard suite are accelerated by changing **only isolated test-profile state** through DevTools. Production runtime files contain no test-clock override or bypass. **The opt-in real-clock acceptance test passed in 15.0 minutes:** a real ten-minute wait survived closing the extension pages, access required an explicit start, the worker granted a five-minute visit, and the open matching tab was automatically replaced on expiry. No clock or stored deadline was changed in this test. This brings local browser coverage to 21 passing checks including the long acceptance test.
 
 ## Limits and checks after Store enrollment
 
@@ -29,4 +29,4 @@ Physical computer sleep/wake was not induced. Durable deadlines, overdue reconci
 
 The Chrome Web Store upload has not been submitted or approved. Verify the actual Store install and automatic update path after Google assigns the Store extension ID. Keep the unpacked installation until its settings have been exported and successfully imported into the Store copy. The launch kit is in [store/LISTING.md](store/LISTING.md).
 
-GitHub CI repeats source, unit, and standard browser checks on Ubuntu 24.04. The runner is pinned because the initial ubuntu-latest image selected Ubuntu 26.04, which the pinned Playwright release does not support. The corrected run's result is recorded separately after completion.
+**GitHub CI passed** source checks, all 34 unit/worker tests, all 20 standard browser checks, and release packaging on Ubuntu 24.04: [validation run](https://github.com/ajakubowski/local-blocker/actions/runs/44830719112), code commit `5850101`. The runner is pinned because ubuntu-latest selected an unsupported Ubuntu 26.04 image. Linux also exposed a test synchronization race: the privacy test now waits for the visit request to be durably displayed before accelerating its deadline. That corrected check passed three repeated local runs and the full Linux run.

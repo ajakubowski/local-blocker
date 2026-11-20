@@ -4,6 +4,10 @@ A small, private Chrome extension that gives distracting websites a schedule —
 
 **No account. No server. No analytics. No cloud sync.** The extension runs entirely in your Chrome profile, with no runtime dependencies.
 
+[Download the local release](https://github.com/ajakubowski/local-blocker/releases/tag/v1.1.0) · [Privacy statement](PRIVACY.md) · [Report a bug](https://github.com/ajakubowski/local-blocker/issues)
+
+The Chrome Web Store release is being prepared; the download currently installs through **Load unpacked**.
+
 ## Install locally
 
 1. Keep the `extension` folder in a permanent location. If using the ready-to-load release ZIP, extract it and keep the extracted folder instead.
