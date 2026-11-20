@@ -1,0 +1,31 @@
+name: Bug report
+description: Report unexpected blocking, scheduling, or settings behavior.
+body:
+  - type: markdown
+    attributes:
+      value: "Please do not include passwords, personal browsing URLs, or your settings backup. Use example.com when possible. This is a public issue."
+  - type: textarea
+    id: behavior
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Extension version, Chrome version, operating system, and timezone
+    validations:
+      required: true
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Installation method
+      options:
+        - Load unpacked
+        - Chrome Web Store
