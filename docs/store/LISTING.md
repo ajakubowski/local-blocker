@@ -1,6 +1,10 @@
 # Chrome Web Store listing — Local Blocker 1.1.0
 
-Status: prepared for submission. This document does not mean the extension has passed Chrome Web Store review.
+Status: version 1.1.0 was uploaded and submitted for Chrome Web Store review on November 23, 2026, under Thuja Ventures LLC. Review is pending; automatic publishing is disabled. Initial visibility is Unlisted.
+
+Store item ID: `abilljcfainmokckafdipfjcpicmdgnj`.
+
+The uploaded ZIP was verified against the recorded SHA-256 and all 17 runtime files in the tested source. The listing includes the icon, three screenshots, both promotional tiles, permission/data disclosures, and reviewer instructions. Google's submission confirmation was observed in the developer dashboard.
 
 ## Listing fields
 
@@ -12,7 +16,9 @@ Status: prepared for submission. This document does not mean the extension has p
 - Initial visibility: Unlisted, followed by Public after initial feedback
 - Homepage/source: https://github.com/ajakubowski/local-blocker
 - Support: https://github.com/ajakubowski/local-blocker/issues
-- Privacy policy: https://github.com/ajakubowski/local-blocker/blob/main/PRIVACY.md
+- Privacy policy: https://raw.githubusercontent.com/ajakubowski/local-blocker/main/PRIVACY.md
+
+Google's submission checker could not reach the GitHub rendered file page. The direct public URL above returned HTTP 200, was checked against the local policy text, and was accepted on resubmission.
 
 ## Detailed description — paste into the listing
 
@@ -47,10 +53,10 @@ This is a self-control aid: it cannot prevent disabling or uninstalling the exte
 
 ## Launch sequence
 
-1. Sign in to the [Chrome Web Store dashboard](https://chrome.google.com/webstore/devconsole) using the existing Google account. Google Play enrollment is separate. Complete Web Store enrollment and its one-time fee if prompted; enable 2-Step Verification and verify the contact email.
+1. Sign in to the [Chrome Web Store dashboard](https://chrome.google.com/webstore/devconsole) using the registered Thuja Ventures Google account. Enrollment, 2-Step Verification, publisher verification, and contact-email verification are complete.
 2. Choose the publisher display name and accurately answer any account/trader-status questions. These are account-owner choices; do not infer them from the extension's free price.
 3. Upload the dedicated Web Store ZIP. Enter the fields above, [privacy disclosures](PRIVACY-FIELDS.md), and [reviewer instructions](REVIEWER-INSTRUCTIONS.md).
-4. Choose Unlisted. Submit for review with automatic publishing disabled, so the approved listing can be inspected before release. Unlisted submissions still undergo review.
+4. Submitted November 23, 2026: Unlisted, with automatic publishing disabled so the approved listing can be inspected before release. Unlisted submissions still undergo review. Google says staged approvals expire after 30 days if not published.
 5. After approval, publish the unlisted listing and verify install/update behavior using its actual Store ID. Test with a few users, then switch the same listing to Public; keep its ID and existing users.
 6. To move the current unpacked installation, unlock it and export saved settings. Keep the original installed until the Store version is installed, a new password is set, the backup is reviewed/saved, and website access is granted. Disable the unpacked copy once the Store copy is verified to avoid duplicate blockers. Do not expect active waits or passwords to migrate.
 

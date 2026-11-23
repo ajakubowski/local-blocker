@@ -32,6 +32,8 @@ For any explanation field: "All processing and storage occur locally in the user
 
 Certifications supported by the code: no sale/transfer to third parties; no use unrelated to the extension's single purpose; no use to determine creditworthiness or for lending. Review the precise current certification text before accepting it.
 
-Privacy policy URL: https://github.com/ajakubowski/local-blocker/blob/main/PRIVACY.md
+Privacy policy URL: https://raw.githubusercontent.com/ajakubowski/local-blocker/main/PRIVACY.md
+
+Submission note (November 23, 2026): Google's checker rejected the rendered GitHub file URL as unreachable. The direct public URL above serves the identical policy and was accepted. The current dashboard offered justification fields for storage, alarms, and declarativeNetRequest; optional-host-access and bundled-code explanations were included in the declarativeNetRequest justification. Authentication information and Web history were disclosed as local-only handling, with all three supported data-use certifications selected.
 
 The public repository and Store listing are hosted by GitHub/Google under their own privacy policies. The extension does not contact either service to send browsing or settings data.
